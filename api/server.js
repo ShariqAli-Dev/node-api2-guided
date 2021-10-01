@@ -7,9 +7,9 @@ const server = express();
 
 server.use(express.json());
 
-const Adopter = require('./adopters/adopters-model');
 const Dog = require('./dogs/dogs-model');
 
+const Adopter = require('./adopters/adopters-model');
 // ADOPTERS ENDPOINTS
 // ADOPTERS ENDPOINTS
 // ADOPTERS ENDPOINTS
