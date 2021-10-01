@@ -8,8 +8,6 @@ const server = express();
 server.use(express.json());
 server.use("/api/adopters",adopterRouter)
 
-
-
 // OTHER ENDPOINTS
 // OTHER ENDPOINTS
 // OTHER ENDPOINTS
