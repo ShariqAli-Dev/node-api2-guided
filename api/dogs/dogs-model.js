@@ -8,7 +8,7 @@ module.exports = {
 };
 
 function find() {
-  return db('dogs as d')
+  return db('dogs as d') //select * from dogs
     .leftJoin('adopters as a', 'a.id', 'd.adopter_id')
     .select('d.id', 'd.name', 'd.weight', 'a.name as adopter_name');
 }
