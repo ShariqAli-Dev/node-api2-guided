@@ -4,6 +4,7 @@ const router = express.Router()
 // ADOPTERS ENDPOINTS
 // ADOPTERS ENDPOINTS
 // ADOPTERS ENDPOINTS
+
 router.get('/api/adopters', (req, res) => {
   Adopter.find(req.query)
     .then(adopters => {
