@@ -14,7 +14,5 @@ function find() {
 }
 
 function update(id, changes) {
-  return db('dogs')
-    .where({ id })
-    .update(changes, '*');
+  return db('dogs').where({ id }).update(changes, '*');
 }

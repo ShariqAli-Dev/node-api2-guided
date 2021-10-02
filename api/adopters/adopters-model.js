@@ -24,9 +24,7 @@ function find(query) {
 }
 
 function findById(id) {
-  return db('adopters')
-    .where({ id })
-    .first();
+  return db('adopters').where({ id }).first();
 }
 
 async function add(adopter) {
@@ -36,15 +34,11 @@ async function add(adopter) {
 }
 
 function remove(id) {
-  return db('adopters')
-    .where({ id })
-    .del();
+  return db('adopters').where({ id }).del();
 }
 
 function update(id, changes) {
-  return db('adopters')
-    .where({ id })
-    .update(changes, '*');
+  return db('adopters').where({ id }).update(changes, '*');
 }
 
 function findDogs(adopterId) {

@@ -15,10 +15,10 @@ const Dog = require('./dogs/dogs-model');
 // ADOPTERS ENDPOINTS
 server.get('/api/adopters', (req, res) => {
   Adopter.find(req.query)
-    .then(adopters => {
+    .then((adopters) => {
       res.status(200).json(adopters);
     })
-    .catch(error => {
+    .catch((error) => {
       console.log(error);
       res.status(500).json({
         message: 'Error retrieving the adopters',
@@ -28,14 +28,14 @@ server.get('/api/adopters', (req, res) => {
 
 server.get('/api/adopters/:id', (req, res) => {
   Adopter.findById(req.params.id)
-    .then(adopter => {
+    .then((adopter) => {
       if (adopter) {
         res.status(200).json(adopter);
       } else {
         res.status(404).json({ message: 'Adopter not found' });
       }
     })
-    .catch(error => {
+    .catch((error) => {
       console.log(error);
       res.status(500).json({
         message: 'Error retrieving the adopter',
@@ -45,14 +45,14 @@ server.get('/api/adopters/:id', (req, res) => {
 
 server.get('/api/adopters/:id/dogs', (req, res) => {
   Adopter.findDogs(req.params.id)
-    .then(dogs => {
+    .then((dogs) => {
       if (dogs.length > 0) {
         res.status(200).json(dogs);
       } else {
         res.status(404).json({ message: 'No dogs for this adopter' });
       }
     })
-    .catch(error => {
+    .catch((error) => {
       console.log(error);
       res.status(500).json({
         message: 'Error retrieving the dogs for this adopter',
@@ -62,10 +62,10 @@ server.get('/api/adopters/:id/dogs', (req, res) => {
 
 server.post('/api/adopters', (req, res) => {
   Adopter.add(req.body)
-    .then(adopter => {
+    .then((adopter) => {
       res.status(201).json(adopter);
     })
-    .catch(error => {
+    .catch((error) => {
       console.log(error);
       res.status(500).json({
         message: 'Error adding the adopter',
@@ -75,14 +75,14 @@ server.post('/api/adopters', (req, res) => {
 
 server.delete('/api/adopters/:id', (req, res) => {
   Adopter.remove(req.params.id)
-    .then(count => {
+    .then((count) => {
       if (count > 0) {
         res.status(200).json({ message: 'The adopter has been nuked' });
       } else {
         res.status(404).json({ message: 'The adopter could not be found' });
       }
     })
-    .catch(error => {
+    .catch((error) => {
       console.log(error);
       res.status(500).json({
         message: 'Error removing the adopter',
@@ -93,14 +93,14 @@ server.delete('/api/adopters/:id', (req, res) => {
 server.put('/api/adopters/:id', (req, res) => {
   const changes = req.body;
   Adopter.update(req.params.id, changes)
-    .then(adopter => {
+    .then((adopter) => {
       if (adopter) {
         res.status(200).json(adopter);
       } else {
         res.status(404).json({ message: 'The adopter could not be found' });
       }
     })
-    .catch(error => {
+    .catch((error) => {
       console.log(error);
       res.status(500).json({
         message: 'Error updating the adopter',
@@ -113,10 +113,10 @@ server.put('/api/adopters/:id', (req, res) => {
 // DOGS ENDPOINTS
 server.get('/api/dogs', (req, res) => {
   Dog.find()
-    .then(dogs => {
+    .then((dogs) => {
       res.status(200).json(dogs);
     })
-    .catch(error => {
+    .catch((error) => {
       console.log(error);
       res.status(500).json({
         message: 'Error retrieving the dogs',
